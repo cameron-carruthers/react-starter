@@ -1,10 +1,11 @@
 import React from 'react';
+import MovieList from './MovieList.js'
 
 class App extends React.Component {
   render(){
     return(
     <div>
-      Starter App component - hello there
+      <MovieList />
     </div>
   )}
 }
