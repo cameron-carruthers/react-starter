@@ -11,7 +11,7 @@ html, body {
   line-height: 1.6;
 }
 
-h1 {
+nav {
   background-color: #333;
   color: #fff;
   height: 100%;
@@ -19,7 +19,9 @@ h1 {
   text-align: center;
   padding: 20px;
   margin-bottom: 50px;
-  font-size: 30px;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .movie-list {
@@ -38,3 +40,37 @@ h1 {
   padding: 30px;
   margin: 10px;
 }
+
+.primary-color {
+  color: red;
+}
+
+.bkg-primary {
+  background-color: red;
+  color: #fff;
+}
+
+.search {
+  padding: 5px;
+  margin: 10px;
+  width: 250px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+button {
+  height: 35px;
+  width: 50px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* .btn {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 30px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+} */
