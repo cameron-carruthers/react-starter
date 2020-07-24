@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MovieListEntry = (props) => (
-  <div>{props.movie}</div>
+  <div className="movie-list-entry">{props.movie}</div>
 );
 
 export default MovieListEntry;

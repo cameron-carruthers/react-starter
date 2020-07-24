@@ -10,7 +10,7 @@ const movies = [
 ];
 
 const MovieList = (props) => (
-  <div>
+  <div className="movie-list">
     {movies.map((movie) => {
       return (
         <MovieListEntry movie={movie.title} />
