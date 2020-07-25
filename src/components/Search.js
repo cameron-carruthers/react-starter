@@ -13,7 +13,7 @@ class Search extends React.Component {
   }
 
   handleChange(e) {
-    let searchWord = e.target.value;
+    let searchWord = e.target.value.toLowerCase();
     this.setState({
       searchInput: e.target.value
     })
@@ -21,7 +21,8 @@ class Search extends React.Component {
     let selectedVideos = [];
     let movies = this.props.allMovies;
     for (let i = 0; i < movies.length; i++) {
-      if (movies[i].title.slice(0, searchWordLength) === searchWord) {
+      let movie = movies[i];
+      if (movies[i].title.slice(0, searchWordLength).toLowerCase() === searchWord) {
         selectedVideos.push(movies[i]);
       } 
     }
