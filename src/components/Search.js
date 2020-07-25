@@ -1,17 +1,25 @@
 import React from 'react';
-import movies from '../data/movies';
 
 class Search extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      searchInput: ''
+    }
+
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     let searchWord = e.target.value;
+    this.setState({
+      searchInput: e.target.value
+    })
     let searchWordLength = searchWord.length;
     let selectedVideos = [];
+    let movies = this.props.allMovies;
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].title.slice(0, searchWordLength) === searchWord) {
         selectedVideos.push(movies[i]);
@@ -23,12 +31,19 @@ class Search extends React.Component {
     this.props.onChange(selectedVideos);
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({
+      searchInput: ''
+    })
+  }
+
   render() {
     return (
-      <div>
-        <input className="input-text" type="text" placeholder="Search..." onChange={this.handleChange}/>
+      <form onSubmit={this.handleSubmit}>
+        <input className="input-text" type="text" placeholder="Search..." value={this.state.searchInput} onChange={this.handleChange}/>
         <button className="bkg-secondary">Go!</button>
-      </div>
+      </form>
     );
   }
 }

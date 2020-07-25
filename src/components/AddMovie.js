@@ -1,34 +1,37 @@
 import React from 'react';
-import movies from '../data/movies';
 
 class AddMovie extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    // this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      newMovie: ''
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  // handleChange(e) {
-  //   let searchWord = e.target.value;
-  //   let searchWordLength = searchWord.length;
-  //   let selectedVideos = [];
-  //   for (let i = 0; i < movies.length; i++) {
-  //     if (movies[i].title.slice(0, searchWordLength) === searchWord) {
-  //       selectedVideos.push(movies[i]);
-  //     } 
-  //   }
-  //   if (selectedVideos.length === 0) {
-  //     selectedVideos.push({title: 'Unfortunately, we do not yet have any movies by that name. Please email us so we can add it.'});
-  //   }
-  //   this.props.onChange(selectedVideos);
-  // }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.onSubmit({title: this.state.newMovie});
+    this.setState({
+      newMovie: ''
+    })
+  }
+
+  handleChange(e) {
+    this.setState({
+      newMovie: e.target.value
+    })
+  }
 
   render() {
     return (
-      <div>
-      <input className="input-text" type="text" placeholder="Add Movie Title Here"/>
-      <button className="bkg-primary">Add</button>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <input className="input-text" type="text" placeholder="Add Movie Title Here" value={this.state.newMovie} onChange={this.handleChange}/>
+        <button className="bkg-primary">Add</button>
+      </form>
     );
   }
 }
