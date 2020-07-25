@@ -15,7 +15,10 @@ class Search extends React.Component {
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].title.slice(0, searchWordLength) === searchWord) {
         selectedVideos.push(movies[i]);
-      }
+      } 
+    }
+    if (selectedVideos.length === 0) {
+      selectedVideos.push({title: 'Unfortunately, we do not yet have any movies by that name. Please email us so we can add it.'});
     }
     this.props.onChange(selectedVideos);
   }
