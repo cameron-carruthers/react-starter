@@ -1,22 +1,16 @@
 import React from 'react';
 import MovieListEntry from './MovieListEntry.js';
 
-const movies = [
-  {title: 'Mean Girls'},
-  {title: 'Hackers'},
-  {title: 'The Grey'},
-  {title: 'Sunshine'},
-  {title: 'Ex Machina'},
-];
-
-const MovieList = (props) => (
-  <div className="movie-list">
-    {movies.map((movie) => {
-      return (
-        <MovieListEntry movie={movie.title} />
-      )
-    })}
-  </div>
-);
+const MovieList = (props) => {
+  return (
+    <div className="movie-list">
+      {props.movies.map((movie) => {
+        return (
+          <MovieListEntry movie={movie.title} />
+        )
+      })}
+    </div>
+  )
+}
 
 export default MovieList;
