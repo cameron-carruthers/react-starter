@@ -1,19 +1,14 @@
 import React from 'react';
 import MovieList from './MovieList.js';
 import Search from './Search.js';
+import AddMovie from './AddMovie.js'
 
 class App extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      selectedMovies: [
-        {title: 'Mean Girls'},
-        {title: 'Hackers'},
-        {title: 'The Grey'},
-        {title: 'Sunshine'},
-        {title: 'Ex Machina'},
-      ]
+      selectedMovies: []
     }
 
     this.selectMovies = this.selectMovies.bind(this);
@@ -30,7 +25,10 @@ class App extends React.Component {
     <div>
       <nav>
         <h1>Movie<span className="primary-color">List</span></h1>
-        <Search onChange={this.selectMovies}/>
+        <div className="container">
+          <AddMovie />
+          <Search onChange={this.selectMovies}/>
+        </div>
       </nav>
       <main>
         <MovieList movies={this.state.selectedMovies}/>

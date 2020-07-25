@@ -26,8 +26,8 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-      <input className="search" type="text" onChange={this.handleChange}/>
-      <button className="bkg-primary">Go!</button>
+        <input className="input-text" type="text" placeholder="Search..." onChange={this.handleChange}/>
+        <button className="bkg-secondary">Go!</button>
       </div>
     );
   }
